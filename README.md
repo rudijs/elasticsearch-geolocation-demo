@@ -20,11 +20,11 @@ Start an Elasticsearch Docker container.
 
 This command will download the official Elasticsearch v2 image from hub.docker.com and start a container instance:
 
-- `sudo docker run -d --name elasticsearch -v "$PWD/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch:2.0.0`
+- `sudo docker run -d --name elasticsearch -v "$PWD/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch:2.0.0 -Des.network.bind_host=0.0.0.0`
 
 Let's install the *elasticsearch-head* plugin so we'll have a web admin tool to see our data:
 
-- `sudo docker exec -it elasticsearch /usr/share/elasticsearch/bin/plugin -install mobz/elasticsearch-head`
+- `sudo docker exec -it elasticsearch /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head`
 
 Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:9200/_plugin/head/)
 
