@@ -22,11 +22,13 @@ This command will download the official Elasticsearch v2 image from hub.docker.c
 
 - `sudo docker run -d --name elasticsearch -v "$PWD/esdata":/usr/share/elasticsearch/data -p 9200:9200 elasticsearch:2.0.0 -Des.network.bind_host=0.0.0.0`
 
+<!-- todo: not working fully for elasticsearch v2
 Let's install the *elasticsearch-head* plugin so we'll have a web admin tool to see our data:
 
 - `sudo docker exec -it elasticsearch /usr/share/elasticsearch/bin/plugin install mobz/elasticsearch-head`
 
 Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:9200/_plugin/head/)
+-->
 
 # Create
 
@@ -53,7 +55,6 @@ For this demostration we'll be using the East Coast of Australia from Cairns to 
 - `curl -XPOST http://localhost:9200/geo/place/  --data-binary @place_brisbane.json`
 - `curl -XPOST http://localhost:9200/geo/place/  --data-binary @place_sydney.json`
 - `curl -XPOST http://localhost:9200/geo/place/  --data-binary @place_melbourne.json`
-
 
 # Search
 
