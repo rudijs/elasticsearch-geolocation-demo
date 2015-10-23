@@ -1,0 +1,14 @@
+{
+  "place": {
+    "properties": {
+      "place": {
+        "type": "string",
+        "store": true,
+        "index": "analyzed"
+      },
+      "location": {
+        "type": "geo_point"
+      }
+    }
+  }
+}
