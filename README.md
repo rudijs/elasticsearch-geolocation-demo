@@ -36,11 +36,13 @@ Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:920
 **Create a new Elasticsearch index**
 
 - `curl -XPUT http://localhost:9200/geo`
+
 <!-- curl -XDELETE http://localhost:9200/geo -->
 
 **Create a mapping on the new index for our data**
 
 - `curl -XPUT localhost:9200/geo/_mapping/place --data-binary @mapping_place.json`
+
 <!-- curl -XDELETE localhost:9200/geo/_mapping/place -->
 
 **Add some 'places' to our index**
@@ -55,6 +57,7 @@ Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:920
 Search all data (no sorting or filters):
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search`
+
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search | jq '.hits.hits[]._source.place'
 curl -s -XGET http://localhost:9200/geo/place/_search?q=melbourne | jq '.hits.hits[]._source.place'
@@ -83,6 +86,7 @@ curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_dista
 Search, sort and filter by distance:
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json`
+
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json | jq '.hits.hits[]._source.place`
 -->
