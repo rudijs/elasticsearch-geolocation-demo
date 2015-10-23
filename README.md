@@ -57,6 +57,7 @@ Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:920
 Search all data (no sorting or filters):
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search`
+- **Results**: Brisbane, Sydney, Melbourne
 
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search | jq '.hits.hits[]._source.place'
@@ -66,18 +67,22 @@ curl -s -XGET http://localhost:9200/geo/place/_search?q=melbourne | jq '.hits.hi
 Search and sort by distance:
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json`
+- **Results**: Brisbane, Sydney, Melbourne
 
 <!--
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json | jq '.hits.hits[]._source.place'`
 -->
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json`
+- **Results**: Melbourne, Sydney, Brisbane
 
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json | jq '.hits.hits[]._source.place'
 -->
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json`
+- **Results**: Sydney, Melbourne, Brisbane
+
 
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json | jq '.hits.hits[]._source.place'
@@ -86,6 +91,7 @@ curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_dista
 Search, sort and filter by distance:
 
 - `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json`
+- **Results**: Melbourne, Sydney
 
 <!--
 curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json | jq '.hits.hits[]._source.place`
