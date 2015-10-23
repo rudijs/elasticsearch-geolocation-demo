@@ -66,35 +66,35 @@ curl -s -XGET http://localhost:9200/geo/place/_search?q=melbourne | jq '.hits.hi
 
 Search and sort by distance:
 
-- `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json`
+- `curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json`
 - **Results**: Brisbane, Sydney, Melbourne
 
 <!--
-- `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json | jq '.hits.hits[]._source.place'`
+- `curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_cairns.json | jq '.hits.hits[]._source.place'`
 -->
 
-- `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json`
+- `curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json`
 - **Results**: Melbourne, Sydney, Brisbane
 
 <!--
-curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json | jq '.hits.hits[]._source.place'
+curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart.json | jq '.hits.hits[]._source.place'
 -->
 
-- `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json`
+- `curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json`
 - **Results**: Sydney, Melbourne, Brisbane
 
 
 <!--
-curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json | jq '.hits.hits[]._source.place'
+curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_canberra.json | jq '.hits.hits[]._source.place'
 -->
 
 Search, sort and filter by distance:
 
-- `curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json`
+- `curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json`
 - **Results**: Melbourne, Sydney
 
 <!--
-curl -s -XGET http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json | jq '.hits.hits[]._source.place`
+curl -s -XPOST http://localhost:9200/geo/place/_search --data-binary @query_distance_from_hobart_filter_1500km.json | jq '.hits.hits[]._source.place`
 -->
 
 <!--
