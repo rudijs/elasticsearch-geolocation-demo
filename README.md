@@ -11,13 +11,10 @@ OS Ubuntu 14.04 plus Elasticsearch v2.0.0
 
 # Setup
 
-Create a workspace:
+Clone the code repository and cd into it:
 
-- `mkdir geo`
-
-Create a directory to keep a persistant store of our elasticsearch database:
-
-- `mkdir esdata`
+- `git clone https://github.com/rudijs/elasticsearch-geolocation-demo.git`
+- `cd elasticsearch-geolocation-demo`
 
 Start an Elasticsearch Docker container.
 
@@ -44,6 +41,12 @@ Open a browser tab at [http://localhost:9200/_plugin/head/](http://localhost:920
 - `curl -XPUT localhost:9200/geo/_mapping/place --data-binary @mapping_place.json`
 
 <!-- curl -XDELETE localhost:9200/geo/_mapping/place -->
+
+## Geo Location Data
+
+For this demostration we'll be using the East Coast of Australia from Cairns to Hobart.
+
+![Australian East Coast](australian_east_coast.png "Australian East Coast")
 
 **Add some 'places' to our index**
 
